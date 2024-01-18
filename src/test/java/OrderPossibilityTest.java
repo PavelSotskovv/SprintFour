@@ -1,14 +1,13 @@
-import pageobject.AboutRentPage;
-import pageobject.HomePage;
-import pageobject.UserDataFillingForm;
+
+import Pageobject.AboutRentPage;
+import Pageobject.HomePage;
+import Pageobject.UserDataFillingForm;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import static org.junit.Assert.assertTrue;
-
-
 
 public class OrderPossibilityTest {
 
@@ -25,7 +24,7 @@ public class OrderPossibilityTest {
         driver = new FirefoxDriver();
         driver.get(SCOOTER_URL); //URL "Самоката"
         homePage = new HomePage(driver); //инициализация объекта домашней страницы
-        userDataFillingForm = new UserDataFillingForm(driver); //инициализация объекта страницы "Для кого самокат"
+        userDataFillingForm = new UserDataFillingForm(); //инициализация объекта страницы "Для кого самокат"
         aboutRentPage = new AboutRentPage(driver); //инициализация объекта страницы "Про аренду"
         homePage.cookieApproving(); // Принимаем куки
         driver.manage().window().maximize();  // Увеличение экрана
@@ -59,7 +58,7 @@ public class OrderPossibilityTest {
         @Test
         public void testOrderPossibilityMiddleButton () {
         homePage.clickOrderButtonFromMiddle(); //Нажимаем на кнопку "Заказать" в центре страницы
-        UserDataFillingForm.isPageOpened();
+        userDataFillingForm.isPageOpened();
     }
 
 
